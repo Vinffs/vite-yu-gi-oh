@@ -1,6 +1,6 @@
 <template>
-  <div class="row gy-4">
-    <div class="col-12 col-md-4 col-lg-3" v-for="card in store.cards">
+  <div class="row gy-4 gapping">
+    <div class="col-12 col-md-4 col-lg-2" v-for="card in store.cards">
       <CardComponent :image="imgUrl(card.id)" :title="card.name" :text="card.race" />
     </div>
   </div>

@@ -1,6 +1,9 @@
 <template>
   <div>
-    <card />
+    <NavBar />
+    <div class="container ">
+      <card />
+    </div>
   </div>
 </template>
 
@@ -8,10 +11,12 @@
 import { store } from './data/store';
 import Card from './components/card.vue';
 import axios from 'axios';
+import NavBar from './components/NavBar.vue';
 export default {
   name: 'App',
   components: {
     Card,
+    NavBar,
   },
   data() {
     return store;
