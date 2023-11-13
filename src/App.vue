@@ -1,4 +1,5 @@
 <template>
+  <PagePreloader />
   <div>
     <NavBar />
     <div class="container ">
@@ -12,11 +13,13 @@ import { store } from './data/store';
 import Card from './components/card.vue';
 import axios from 'axios';
 import NavBar from './components/NavBar.vue';
+import PagePreloader from './components/PagePreloader.vue';
 export default {
   name: 'App',
   components: {
     Card,
     NavBar,
+    PagePreloader,
   },
   data() {
     return store;

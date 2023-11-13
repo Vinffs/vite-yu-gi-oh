@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav navbar navbar-expand-lg bg-dark border-bottom border-body py-4" data-bs-theme="dark">
+  <nav class="nav navbar navbar-expand-lg py-4 border-0" data-bs-theme="dark">
     <div class="container-fluid">
       <div class="maxWidth"><a class="navbar-brand" href="#"><img class="w-75 mx-3" src="/images/logo.png" alt="logo"></a>
       </div>
@@ -37,4 +37,17 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #333;
+}
+
+.maxWidth {
+  max-width: 250px !important;
+}
+</style>

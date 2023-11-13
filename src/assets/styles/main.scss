@@ -4,29 +4,3 @@
 body {
   background-image: url('/images/background.png');
 }
-
-.minimum{
-  min-height: 400px !important;
-}
-
-.title{
-  font-size: 1.2em;
-  font-weight: bold;
-  text-wrap: balanced;
-}
-
-.nav{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-}
-
-.gapping{
-  margin-top: 120px;
-}
-
-.maxWidth{
-  max-width: 250px !important;
-}

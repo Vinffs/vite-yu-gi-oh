@@ -1,5 +1,5 @@
 <template>
-  <div class="card minimum bg-secondary rounded-bottom-3">
+  <div class="card cardProp rounded-bottom-3">
     <img :src="image" class="card-img-top" :alt="title">
     <div class="card-body text-center flex-fill py-2">
       <h5 class="card-title title text-white">{{ title }}</h5>
@@ -23,4 +23,15 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.cardProp {
+  min-height: 400px !important;
+  background-color: #333;
+}
+
+.title {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-wrap: balanced;
+}
+</style>

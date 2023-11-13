@@ -1,6 +1,6 @@
 <template>
-  <div class="row gy-4 gapping">
-    <div class="col-12 col-md-4 col-lg-2" v-for="card in store.cards">
+  <div class="row gapping">
+    <div class="col-12 col-md-4 col-lg-2 my-3" v-for="card in store.cards">
       <CardComponent :image="imgUrl(card.id)" :title="card.name" :text="card.race" />
     </div>
   </div>
@@ -28,4 +28,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.gapping {
+  padding-top: 150px;
+}
+</style>
