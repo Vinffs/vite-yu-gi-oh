@@ -1,5 +1,5 @@
 <template>
-  <div class="page-loader" v-if="!isloaded">
+  <div class="page-loader">
     <img src="/images/logo.png" alt="logo">
     <h1 class="m-4 text-danger-emphasis">Loading</h1>
     <div class="d-flex flex-row m-2">
@@ -15,15 +15,10 @@
 export default {
   data() {
     return {
-      isloaded: false
     }
   },
   mounted() {
-    document.onreadystatechange = () => {
-      if (document.readyState == "complete") {
-        this.isloaded = true;
-      }
-    }
+
   },
 }
 </script>

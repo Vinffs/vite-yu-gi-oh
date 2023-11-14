@@ -1,5 +1,5 @@
 <template>
-  <PagePreloader />
+  <PagePreloader v-if="!isloaded" />
   <div>
     <NavBar />
     <div class="container ">
@@ -22,19 +22,38 @@ export default {
     PagePreloader,
   },
   data() {
-    return store;
+    return {
+      store,
+      isloaded: false,
+    }
   },
   methods: {
     getCards() {
-      const url = store.apiUrl;
-      axios.get(url, { params: store.params }).then((response) => {
+      const urlCards = store.apiUrl + store.cardInfo;
+      axios.get(urlCards, { params: store.params }).then((response) => {
         console.log(response.data.data);
         store.cards = response.data.data;
       })
+    },
+    getArchetypes() {
+      const urlArchetype = store.apiUrl + store.archetype;
+      console.log(urlArchetype);
+      axios.get(urlArchetype).then((response) => {
+        console.log(response.data);
+        store.archetype = response.data;
+      })
+    }
+  },
+  mounted() {
+    document.onreadystatechange = () => {
+      if (document.readyState == "complete") {
+        this.isloaded = true;
+      }
     }
   },
   created() {
     this.getCards();
+    this.getArchetypes();
   }
 }
 </script>
