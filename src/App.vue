@@ -63,24 +63,6 @@ export default {
         store.archetype = results[1].data;
         this.isLoaded = true;
       });
-
-    /*
-     created() {
-      function getCards() {
-        const urlCards = store.apiUrl + store.cardInfo;
-        return axios.get(urlCards, { params: store.params })
-      }
-      function getArchetypes() {
-        const urlArchetype = store.apiUrl + store.archetypeUrl;
-        return axios.get(urlArchetype)
-      }
-      Promise.all([getCards(), getArchetypes()])
-        .then(function (results) {
-          store.cards = results[0].data.data;
-          store.archetype = results[1].data;
-        })
-    }
-    */
   },
 };
 </script>
