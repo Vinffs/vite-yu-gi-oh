@@ -25,7 +25,7 @@ export default {
 
 <style lang="scss" scoped>
 .cardProp {
-  min-height: 400px !important;
+  min-height: 450px !important;
   background-color: #333;
 }
 

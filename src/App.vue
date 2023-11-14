@@ -1,7 +1,7 @@
 <template>
   <PagePreloader v-if="!isloaded" />
   <div>
-    <NavBar />
+    <NavBar @change-select="filterCard" />
     <div class="container ">
       <card />
     </div>
@@ -25,22 +25,38 @@ export default {
     return {
       store,
       isloaded: false,
+      key: null,
     }
   },
   methods: {
     getCards() {
       const urlCards = store.apiUrl + store.cardInfo;
       axios.get(urlCards, { params: store.params }).then((response) => {
-        console.log(response.data.data);
         store.cards = response.data.data;
       })
     },
     getArchetypes() {
-      const urlArchetype = store.apiUrl + store.archetype;
-      console.log(urlArchetype);
+      const urlArchetype = store.apiUrl + store.archetypeUrl;
       axios.get(urlArchetype).then((response) => {
-        console.log(response.data);
         store.archetype = response.data;
+      })
+    },
+    filterCard(select) {
+      if (select) {
+        this.key = {
+          archetype: select,
+        }
+      } else {
+        this.key = null;
+      }
+
+      this.getFiltered();
+
+    },
+    getFiltered() {
+      const urlCards = store.apiUrl + store.cardInfo;
+      axios.get(urlCards, { params: this.key }).then((response) => {
+        store.cards = response.data.data;
       })
     }
   },

@@ -8,9 +8,12 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarColor01">
-        <select class="navbar-nav me-auto mb-2 mb-lg-0 px-5 mx-5 py-2" name="archetype">
-          <option class="nav-link active dropdown-toggle px-3" value="">Archetype</option>
-          <option value=""></option>
+        <select v-model="selected" @change="$emit('changeSelect', selected)"
+          class="navbar-nav me-auto mb-2 mb-lg-0 px-1 mx-5 py-2" name="archetype">
+          <option class="nav-link active dropdown-toggle" value="">All Archetypes</option>
+          <option class="nav-link active dropdown-toggle" v-for="archetype in store.archetype"
+            :value="archetype.archetype_name">{{ archetype.archetype_name }}
+          </option>
         </select>
         <form class="d-flex" role="search" data-np-autofill-form-type="other" data-np-checked="1" data-np-watching="1">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -22,8 +25,15 @@
 </template>
 
 <script>
+import { store } from '../data/store.js';
 export default {
-
+  name: 'NavBar',
+  data() {
+    return {
+      store,
+      selected: '',
+    }
+  }
 }
 </script>
 
