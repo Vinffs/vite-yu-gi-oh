@@ -1,5 +1,6 @@
 <template>
   <div class="row gapping">
+    <h2 class="text-center">{{ store.cards.length }} Cards</h2>
     <div class="col-12 col-md-4 col-lg-2 my-3" v-for="card in store.cards">
       <CardComponent :image="imgUrl(card.id)" :title="card.name" :text="card.race" />
     </div>
@@ -23,6 +24,9 @@ export default {
     imgUrl(id) {
       return `https://images.ygoprodeck.com/images/cards/${id}.jpg`;
     },
+    loadMore() {
+      store.params.num += 30;
+    }
   }
 
 }
